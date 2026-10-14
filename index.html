@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-teal-600 to-white flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg w-96">
+
+        <h2 class="text-2xl font-bold text-center text-teal-700 mb-6">
+            Student Help Desk
+        </h2>
+
+        <p class="text-center mb-5 text-gray-600">
+            Click a question to see the answer
+        </p>
+
+        <!-- FAQ 1 -->
+        <div class="mb-3">
+            <button class="faq-btn w-full flex justify-between items-center text-left p-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded transition duration-300 hover:scale-[1.02] hover:shadow-md">
+                <span>What are the college timings?</span>
+                <span class="arrow transition-transform duration-500">▼</span>
+            </button>
+            <div class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out bg-teal-50">
+                <p class="p-3">The college runs from 9:00 AM to 5:00 PM, Monday to Saturday.</p>
+            </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="mb-3">
+            <button class="faq-btn w-full flex justify-between items-center text-left p-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded transition duration-300 hover:scale-[1.02] hover:shadow-md">
+                <span>How do I apply for leave?</span>
+                <span class="arrow transition-transform duration-500">▼</span>
+            </button>
+            <div class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out bg-teal-50">
+                <p class="p-3">Submit a leave request through the college portal.</p>
+            </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="mb-3">
+            <button class="faq-btn w-full flex justify-between items-center text-left p-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded transition duration-300 hover:scale-[1.02] hover:shadow-md">
+                <span>Where can I see my timetable?</span>
+                <span class="arrow transition-transform duration-500">▼</span>
+            </button>
+            <div class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out bg-teal-50">
+                <p class="p-3">Your timetable is available on the student portal.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        const buttons = document.querySelectorAll(".faq-btn");
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                const answer = btn.nextElementSibling;
+                const arrow = btn.querySelector(".arrow");
+                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+
+                if (isOpen) {
+                    answer.style.maxHeight = "0px";
+                    answer.style.opacity = "0";
+                    arrow.style.transform = "rotate(0deg)";
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.opacity = "1";
+                    arrow.style.transform = "rotate(180deg)";
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
